@@ -1,8 +1,89 @@
 .mp3 {
   width: 300px;
-  height: 600px;
-  aspect-ratio: 1 / 2;
-  border: var(--br);
+  height: 500px;
+  aspect-ratio: 300 / 500;
+  border: 1px solid var(--primary);
   border-radius: var(--md);
   padding: var(--lg);
+
+  display: grid;
+  gap: var(--lg);
+  grid-template-rows: 60% auto auto 1fr;
+
+  .wrapper_imgs {
+    position: relative;
+
+    .poster {
+      border-radius: var(--sm);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gif {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.1;
+    }
+  }
+
+  .banner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    place-items: center;
+
+    .name {
+      text-transform: capitalize;
+    }
+
+    .menu,
+    .reload {
+      background-color: transparent;
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      svg {
+        color: var(--primary);
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  .timeline {
+    display: grid;
+    gap: var(--md);
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+
+    input[type="range"] {
+      accent-color: var(--primary);
+    }
+  }
+
+  .controls {
+    display: flex;
+    gap: var(--lg);
+    justify-content: center;
+    align-items: center;
+
+    button {
+      border-radius: var(--lg);
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      svg {
+        color: var(--primary);
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
 }
