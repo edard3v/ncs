@@ -1,0 +1,8 @@
+.mp3 {
+  width: 300px;
+  height: 600px;
+  aspect-ratio: 1 / 2;
+  border: var(--br);
+  border-radius: var(--md);
+  padding: var(--lg);
+}
