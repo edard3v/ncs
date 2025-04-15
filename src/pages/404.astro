@@ -1,0 +1,42 @@
+---
+import Btn from "@components/buttons/Btn/Btn.astro";
+import { Icon } from "astro-icon/components";
+import "@styles/index.css";
+import { ClientRouter } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>404</title>
+
+    <ClientRouter />
+  </head>
+  <body>
+    <Icon name={"404"} />
+    <Btn onclick={"history.back()"}>Volver</Btn>
+  </body>
+</html>
+
+<style>
+  body {
+    display: grid;
+    place-content: center;
+    min-height: 100dvh;
+    background-color: var(--bg_main);
+    color: var(--paras);
+
+    svg {
+      width: 280px;
+      height: 280px;
+    }
+
+    button {
+      justify-self: center;
+    }
+  }
+</style>

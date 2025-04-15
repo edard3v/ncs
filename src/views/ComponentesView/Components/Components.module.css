@@ -1,0 +1,17 @@
+.wrapper {
+  height: 100%;
+  border: var(--br);
+
+  display: grid;
+  gap: var(--xl);
+  justify-content: center;
+  align-content: center;
+
+  .form {
+    padding: var(--lg);
+    border: var(--br);
+    border-radius: var(--md);
+    display: grid;
+    gap: var(--lg);
+  }
+}

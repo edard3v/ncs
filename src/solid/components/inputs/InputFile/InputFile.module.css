@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  background-color: var(--bg_surf);
+  border: var(--border);
+  border-radius: var(--md);
+  padding: 0 var(--md);
+  min-height: var(--h_input);
+  color: inherit;
+
+  &:focus-within {
+    outline: var(--outline);
+  }
+
+  .input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .txt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--grey);
+  }
+}
+
+.wrapper_err:not(:focus-within) {
+  outline: var(--outline_err);
+}

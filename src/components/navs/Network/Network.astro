@@ -1,0 +1,21 @@
+---
+import css from "./Network.module.css";
+import type { HTMLAttributes } from "astro/types";
+import { NETWORKS } from "./networks";
+import LinkOut from "@components/links/LinkOut/LinkOut.astro";
+import { Icon } from "astro-icon/components";
+
+interface Props extends HTMLAttributes<"article"> {}
+
+const { class: cls } = Astro.props;
+---
+
+<article class:list={[css.network, cls]}>
+  {
+    NETWORKS.map(({ url, name }) => (
+      <LinkOut title={name} href={url}>
+        <Icon name={name} />
+      </LinkOut>
+    ))
+  }
+</article>

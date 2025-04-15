@@ -1,0 +1,48 @@
+:root {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+select {
+  padding: 0 var(--md);
+  background-color: var(--bg_surf);
+  border: var(--br);
+  min-height: var(--h_input);
+  border-radius: var(--md);
+  color: inherit;
+
+  &:focus {
+    outline: var(--outline);
+  }
+}
+
+input,
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+select {
+  min-width: 65px;
+}
+
+a {
+  cursor: pointer;
+  color: var(--blue);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 0;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: var(--outline);
+  }
+}

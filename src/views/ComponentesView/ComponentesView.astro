@@ -1,0 +1,17 @@
+---
+import Layout from "@layouts/Layout/Layout.astro";
+import { COMPONENTES } from "./config";
+import ComponentsIsland from "./ComponentsIsland/ComponentsIsland";
+---
+
+<Layout title={COMPONENTES.display}>
+  <main>
+    <ComponentsIsland client:only="solid-js" />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: var(--lg);
+  }
+</style>

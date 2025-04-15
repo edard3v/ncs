@@ -1,0 +1,7 @@
+.wrapper {
+  position: relative;
+
+  .input_err:not(:focus) {
+    outline: var(--outline_err);
+  }
+}
