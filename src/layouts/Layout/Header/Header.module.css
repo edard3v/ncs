@@ -9,11 +9,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--xl);
-
-    @media (max-width: 1024px) {
-      gap: var(--lg);
-    }
+    gap: var(--lg);
 
     a {
       color: inherit;

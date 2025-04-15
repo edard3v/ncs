@@ -1,0 +1,16 @@
+header {
+  border-right: var(--br);
+
+  nav {
+    display: grid;
+    justify-items: center;
+    gap: var(--md);
+    padding: var(--lg);
+
+    a {
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+}

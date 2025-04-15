@@ -1,0 +1,22 @@
+export const SEO = {
+  title: "Admin Dashboard | edard3v",
+  description: "Panel de administración moderno y rápido construido con Astro.",
+  author: "edard3v",
+  img: "https://res.cloudinary.com/dzuo8j1qg/image/upload/v1733991158/edard3v.jpg",
+  keywords: [
+    "dashboard",
+    "admin panel",
+    "panel de administración",
+    "edard3v",
+    "edar",
+    "Astro",
+    "TypeScript",
+    "interfaz de administración",
+    "UI dashboard",
+    "aplicaciones web",
+    "admin dashboard astro",
+    "gestión de datos",
+    "admin tools",
+  ],
+  base_url: "http://localhost:4321/",
+};

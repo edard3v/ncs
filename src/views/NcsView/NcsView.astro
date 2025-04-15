@@ -1,0 +1,16 @@
+---
+import LayoutPanel from "@layouts/LayoutPanel/LayoutPanel.astro";
+import { NCS } from "./config";
+---
+
+<LayoutPanel title={NCS.display}>
+  <main>
+    <h1>NCS</h1>
+  </main>
+</LayoutPanel>
+
+<style>
+  main {
+    padding: var(--lg);
+  }
+</style>

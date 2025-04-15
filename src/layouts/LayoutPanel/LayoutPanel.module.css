@@ -1,0 +1,16 @@
+.layout {
+  body {
+    background-color: var(--bg_main);
+    color: var(--paras);
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    main {
+      max-width: 1920px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
