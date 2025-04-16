@@ -1,35 +1,41 @@
 import css from "./Mp3.module.css";
-import { Show } from "solid-js";
-import Loading from "@solid/components/icons/Loading";
-import ErrSvg from "@solid/components/icons/ErrSvg";
+import { Match, Switch } from "solid-js";
 import Poster from "./Poster/Poster";
 import { mp3_store } from "./mp3_store";
 import Banner from "./Banner/Banner";
 import Timeline from "./Timeline/Timeline";
 import Controls from "./Controls/Controls";
+import Loading from "@solid/components/icons/Loading";
+import ErrSvg from "@solid/components/icons/ErrSvg";
 
 export default function Mp3() {
   const mp3 = mp3_store();
 
   return (
-    <Show
-      when={mp3.query_get_songs.isSuccess}
-      fallback={
+    <Switch>
+      <Match when={mp3.query_get_songs.isLoading}>
         <div class={css.mp3}>
-          {mp3.query_get_songs.isLoading && <Loading class="float_center" />}
-          {mp3.query_get_songs.isError && <ErrSvg class="float_center" />}
+          <Loading class="float_center" />
         </div>
-      }
-    >
-      <div class={css.mp3}>
-        <Poster />
+      </Match>
 
-        <Banner />
+      <Match when={mp3.query_get_songs.isError}>
+        <div class={css.mp3}>
+          <ErrSvg class="float_center" />
+        </div>
+      </Match>
 
-        <Timeline />
+      <Match when={mp3.query_get_songs.isSuccess}>
+        <div class={css.mp3}>
+          <Poster />
 
-        <Controls />
-      </div>
-    </Show>
+          <Banner />
+
+          <Timeline />
+
+          <Controls />
+        </div>
+      </Match>
+    </Switch>
   );
 }
