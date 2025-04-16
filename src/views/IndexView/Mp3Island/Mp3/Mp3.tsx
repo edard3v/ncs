@@ -10,6 +10,7 @@ import Pause from "@solid/components/icons/Pause";
 import { createSignal, Show } from "solid-js";
 import { format_seconds_to_minutes } from "@utils/format_seconds_to_minutes";
 import Loading from "@solid/components/icons/Loading";
+import { cls } from "@utils/cls";
 
 export default function Mp3() {
   const [is_play_audio, set_is_play_audio] = createSignal(false);
@@ -41,7 +42,11 @@ export default function Mp3() {
             alt={song()?.name}
           />
 
-          <img class={css.gif} src="music_artic.gif" alt="sonido" />
+          <img
+            class={cls([css.gif, is_play_audio() && css.gif_visible])}
+            src="music_artic.gif"
+            alt="sonido"
+          />
         </div>
 
         <div class={css.banner}>
@@ -56,7 +61,16 @@ export default function Mp3() {
 
         <div class={css.timeline}>
           <span>{format_seconds_to_minutes(audio_time())}</span>
-          <input type="range" min={0} max={song()?.duration} value={audio_time()} />
+          <input
+            type="range"
+            min={0}
+            max={song()?.duration}
+            step={1}
+            value={audio_time()}
+            oninput={(e) => {
+              audio.currentTime = Math.ceil(Number(e.currentTarget.value));
+            }}
+          />
           <span>{format_seconds_to_minutes(song()?.duration)}</span>
           <audio
             ref={(el) => (audio = el)}
