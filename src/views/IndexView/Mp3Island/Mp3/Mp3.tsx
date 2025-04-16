@@ -90,9 +90,11 @@ export default function Mp3() {
 
           <button
             onclick={() => {
-              const is_play = set_is_play_audio(!is_play_audio());
+              const is_play = !is_play_audio();
               if (is_play) audio.play();
               else audio.pause();
+
+              set_is_play_audio(is_play);
             }}
           >
             {!is_play_audio() ? <Play /> : <Pause />}
