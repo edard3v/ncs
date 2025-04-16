@@ -26,6 +26,32 @@ export default function Mp3() {
   const song = () => query.data?.records[index_songs()];
   const song_url = () => `${CLOUDINARY_BASE_VIDEO_URL}/${song()?.song_url}`;
 
+  const back = () => {
+    const new_index = index_songs() - 1;
+    if (new_index < 0) return;
+    set_index_songs(new_index);
+
+    if (is_play_audio()) audio.play();
+    else audio.pause();
+  };
+
+  const next = () => {
+    const new_index = index_songs() + 1;
+    if (new_index >= (query.data?.records.length ?? 0)) return set_is_play_audio(false);
+    set_index_songs(new_index);
+
+    if (is_play_audio()) audio.play();
+    else audio.pause();
+  };
+
+  const play_pause = () => {
+    const is_play = !is_play_audio();
+    if (is_play) audio.play();
+    else audio.pause();
+
+    set_is_play_audio(is_play);
+  };
+
   return (
     <Show
       when={query.isSuccess}
@@ -51,10 +77,18 @@ export default function Mp3() {
         </div>
 
         <div class={css.banner}>
-          <button class={css.reload}>
+          <button
+            class={css.reload}
+            onclick={() => {
+              audio.currentTime = 0;
+              audio.play();
+            }}
+          >
             <Reload />
           </button>
+
           <div class={css.name}>{song()?.name}</div>
+
           <button class={css.menu}>
             <Menu />
           </button>
@@ -79,49 +113,19 @@ export default function Mp3() {
             tabindex={-1}
             src={song_url()}
             controls
-            onended={() => set_is_play_audio(false)}
+            onended={next}
             ontimeupdate={(e) => set_audio_time(e.currentTarget.currentTime)}
           ></audio>
         </div>
 
         <div class={css.controls}>
-          <button
-            disabled={index_songs() === 0}
-            onclick={() => {
-              const new_index = index_songs() - 1;
-              if (new_index < 0) return;
-              set_index_songs(new_index);
-
-              if (is_play_audio()) audio.play();
-              else audio.pause();
-            }}
-          >
+          <button disabled={index_songs() === 0} onclick={back}>
             <Arrow />
           </button>
 
-          <button
-            onclick={() => {
-              const is_play = !is_play_audio();
-              if (is_play) audio.play();
-              else audio.pause();
+          <button onclick={play_pause}>{!is_play_audio() ? <Play /> : <Pause />}</button>
 
-              set_is_play_audio(is_play);
-            }}
-          >
-            {!is_play_audio() ? <Play /> : <Pause />}
-          </button>
-
-          <button
-            disabled={index_songs() >= (query.data?.records.length ?? 0) - 1}
-            onclick={() => {
-              const new_index = index_songs() + 1;
-              if (new_index >= (query.data?.records.length ?? 0)) return;
-              set_index_songs(new_index);
-
-              if (is_play_audio()) audio.play();
-              else audio.pause();
-            }}
-          >
+          <button disabled={index_songs() >= (query.data?.records.length ?? 0) - 1} onclick={next}>
             <Arrow style={{ rotate: "180deg" }} />
           </button>
         </div>
