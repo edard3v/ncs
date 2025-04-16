@@ -1,8 +1,8 @@
 export const SEO = {
   title: "Admin Dashboard | edard3v",
-  description: "Panel de administración moderno y rápido construido con Astro.",
+  description: "Panel de administración NCS.",
   author: "edard3v",
-  img: "https://res.cloudinary.com/dzuo8j1qg/image/upload/v1733991158/edard3v.jpg",
+  img: "https://res.cloudinary.com/dzuo8j1qg/image/upload/v1744800216/ncs/wqddgyinhrqpuj0vxkzv.webp",
   keywords: [
     "dashboard",
     "admin panel",
@@ -18,5 +18,5 @@ export const SEO = {
     "gestión de datos",
     "admin tools",
   ],
-  base_url: "http://localhost:4321/",
+  base_url: "https://ncs-seven.vercel.app/",
 };
