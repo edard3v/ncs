@@ -9,30 +9,4 @@
   display: grid;
   gap: var(--lg);
   grid-template-rows: 60% auto auto 1fr;
-
-  .controls {
-    display: flex;
-    gap: var(--lg);
-    justify-content: center;
-    align-items: center;
-
-    button {
-      border-radius: var(--lg);
-
-      &:disabled {
-        opacity: 0.5;
-        background-color: transparent;
-      }
-
-      &:active:not(:disabled) {
-        transform: scale(0.9);
-      }
-
-      svg {
-        color: var(--primary);
-        width: 35px;
-        height: 35px;
-      }
-    }
-  }
 }
