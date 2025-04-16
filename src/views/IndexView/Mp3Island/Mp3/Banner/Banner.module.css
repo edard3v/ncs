@@ -1,0 +1,24 @@
+.banner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center;
+
+  .name {
+    text-transform: capitalize;
+  }
+
+  .menu,
+  .reload {
+    background-color: transparent;
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    svg {
+      color: var(--primary);
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

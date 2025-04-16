@@ -1,0 +1,23 @@
+.poster {
+  position: relative;
+
+  .img {
+    border-radius: var(--sm);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .gif_visible {
+    opacity: 0.1;
+  }
+}

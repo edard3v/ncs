@@ -10,55 +10,6 @@
   gap: var(--lg);
   grid-template-rows: 60% auto auto 1fr;
 
-  .wrapper_imgs {
-    position: relative;
-
-    .poster {
-      border-radius: var(--sm);
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gif {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-    }
-
-    .gif_visible {
-      opacity: 0.1;
-    }
-  }
-
-  .banner {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    place-items: center;
-
-    .name {
-      text-transform: capitalize;
-    }
-
-    .menu,
-    .reload {
-      background-color: transparent;
-
-      &:active {
-        transform: scale(0.9);
-      }
-
-      svg {
-        color: var(--primary);
-        width: 35px;
-        height: 35px;
-      }
-    }
-  }
-
   .timeline {
     position: relative;
     display: grid;
