@@ -11,6 +11,7 @@ import { createSignal, Show } from "solid-js";
 import { format_seconds_to_minutes } from "@utils/format_seconds_to_minutes";
 import Loading from "@solid/components/icons/Loading";
 import { cls } from "@utils/cls";
+import ErrSvg from "@solid/components/icons/ErrSvg";
 
 export default function Mp3() {
   const [is_play_audio, set_is_play_audio] = createSignal(false);
@@ -57,7 +58,8 @@ export default function Mp3() {
       when={query.isSuccess}
       fallback={
         <div class={css.mp3}>
-          <Loading class="float_center" />
+          {query.isLoading && <Loading class="float_center" />}
+          {query.isError && <ErrSvg class="float_center" />}
         </div>
       }
     >
