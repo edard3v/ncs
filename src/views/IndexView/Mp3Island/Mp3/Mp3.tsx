@@ -15,6 +15,7 @@ import { cls } from "@utils/cls";
 export default function Mp3() {
   const [is_play_audio, set_is_play_audio] = createSignal(false);
   const [audio_time, set_audio_time] = createSignal(0);
+  const [index_songs, set_index_songs] = createSignal(0);
   let audio: HTMLAudioElement;
 
   const query = createQuery(() => ({
@@ -22,7 +23,7 @@ export default function Mp3() {
     queryFn: get_songs_fetch,
   }));
 
-  const song = () => query.data?.records[0];
+  const song = () => query.data?.records[index_songs()];
   const song_url = () => `${CLOUDINARY_BASE_VIDEO_URL}/${song()?.song_url}`;
 
   return (
@@ -84,7 +85,17 @@ export default function Mp3() {
         </div>
 
         <div class={css.controls}>
-          <button>
+          <button
+            disabled={index_songs() === 0}
+            onclick={() => {
+              const new_index = index_songs() - 1;
+              if (new_index < 0) return;
+              set_index_songs(new_index);
+
+              if (is_play_audio()) audio.play();
+              else audio.pause();
+            }}
+          >
             <Arrow />
           </button>
 
@@ -100,7 +111,17 @@ export default function Mp3() {
             {!is_play_audio() ? <Play /> : <Pause />}
           </button>
 
-          <button>
+          <button
+            disabled={index_songs() >= (query.data?.records.length ?? 0) - 1}
+            onclick={() => {
+              const new_index = index_songs() + 1;
+              if (new_index >= (query.data?.records.length ?? 0)) return;
+              set_index_songs(new_index);
+
+              if (is_play_audio()) audio.play();
+              else audio.pause();
+            }}
+          >
             <Arrow style={{ rotate: "180deg" }} />
           </button>
         </div>
