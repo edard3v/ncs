@@ -116,6 +116,7 @@ export default function Mp3() {
             src={song_url()}
             controls
             onended={next}
+            onplay={() => set_is_play_audio(true)}
             ontimeupdate={(e) => set_audio_time(e.currentTarget.currentTime)}
           ></audio>
         </div>
