@@ -17,7 +17,34 @@ export const mp3_store = () => {
   const song = () => query_get_songs.data?.records[index_songs()];
   const song_url = () => `${CLOUDINARY_BASE_VIDEO_URL}/${song()?.song_url}`;
 
+  const back = () => {
+    const new_index = index_songs() - 1;
+    if (new_index < 0) return;
+    set_index_songs(new_index);
+
+    if (is_play_audio()) audio()?.play();
+    else audio()?.pause();
+  };
+
+  const next = () => {
+    const new_index = index_songs() + 1;
+    if (new_index >= (query_get_songs.data?.records.length ?? 0)) return set_is_play_audio(false);
+    set_index_songs(new_index);
+
+    if (is_play_audio()) audio()?.play();
+    else audio()?.pause();
+  };
+
+  const play_pause = () => {
+    const is_play = !is_play_audio();
+    if (is_play) audio()?.play();
+    else audio()?.pause();
+
+    set_is_play_audio(is_play);
+  };
+
   return {
+    query_get_songs,
     audio,
     set_audio,
     song,
@@ -28,6 +55,8 @@ export const mp3_store = () => {
     set_time_audio,
     index_songs,
     set_index_songs,
-    query_get_songs,
+    next,
+    back,
+    play_pause,
   };
 };

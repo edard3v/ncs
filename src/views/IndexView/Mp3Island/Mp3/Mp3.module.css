@@ -10,29 +10,6 @@
   gap: var(--lg);
   grid-template-rows: 60% auto auto 1fr;
 
-  .timeline {
-    position: relative;
-    display: grid;
-    gap: var(--md);
-    grid-template-columns: 15% 1fr 15%;
-    align-items: center;
-    justify-items: center;
-
-    input[type="range"] {
-      accent-color: var(--primary);
-    }
-
-    .audio {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-    }
-  }
-
   .controls {
     display: flex;
     gap: var(--lg);
