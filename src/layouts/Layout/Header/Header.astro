@@ -3,13 +3,13 @@ import css from "./Header.module.css";
 import Link from "@components/links/Link/Link.astro";
 import { INDEX } from "@views/IndexView/config";
 import Logo from "@components/logos/Logo/Logo.astro";
-import { NCS } from "@views/NcsView/config";
+import { SONGS } from "@views/SongsView/config";
 ---
 
 <header class={css.header}>
   <nav>
     <Link href={INDEX.href}><Logo /></Link>
-    <Link href={NCS.href}>Panel</Link>
+    <Link href={SONGS.href}>Panel</Link>
     <!-- <Link href={COMPONENTES.href}>{COMPONENTES.display}</Link> -->
   </nav>
 </header>

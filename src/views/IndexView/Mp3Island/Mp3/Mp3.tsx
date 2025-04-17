@@ -1,3 +1,4 @@
+import css from "./Mp3.module.css";
 import { Match, Switch } from "solid-js";
 import Poster from "./Poster/Poster";
 import { mp3_store } from "./mp3_store";
@@ -21,13 +22,15 @@ export default function Mp3() {
       </Match>
 
       <Match when={mp3.query_get_songs.isSuccess}>
-        <Poster />
+        <div class={css.mp3}>
+          <Poster />
 
-        <Banner />
+          <Banner />
 
-        <Timeline />
+          <Timeline />
 
-        <Controls />
+          <Controls />
+        </div>
       </Match>
     </Switch>
   );
