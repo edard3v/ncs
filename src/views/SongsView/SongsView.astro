@@ -1,11 +1,12 @@
 ---
 import LayoutPanel from "@layouts/LayoutPanel/LayoutPanel.astro";
 import { SONGS } from "./config";
+import SongsIsland from "./SongsIsland/SongsIsland";
 ---
 
 <LayoutPanel title={SONGS.display}>
   <main>
-    <h1>NCS</h1>
+    <SongsIsland client:only="solid-js" />
   </main>
 </LayoutPanel>
 
