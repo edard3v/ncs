@@ -1,0 +1,14 @@
+.login {
+  display: grid;
+  place-content: center;
+  height: 100%;
+
+  form {
+    width: 300px;
+    display: grid;
+    gap: var(--lg);
+    border: var(--br);
+    padding: var(--lg);
+    border-radius: var(--sm);
+  }
+}

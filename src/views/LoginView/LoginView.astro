@@ -1,0 +1,17 @@
+---
+import Layout from "@layouts/Layout/Layout.astro";
+import { LOGIN } from "./config";
+import LoginIsland from "./LoginIsland/LoginIsland";
+---
+
+<Layout title={LOGIN.display}>
+  <main>
+    <LoginIsland client:only="solid-js" />
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: var(--lg);
+  }
+</style>

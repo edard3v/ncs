@@ -12,6 +12,7 @@
       "@solid/*": ["./src/solid/*"],
       "@enums/*": ["./src/enums/*"],
       "@views/*": ["./src/views/*"],
+      "@errors/*": ["./src/errors/*"],
       "@ncs-api/*": ["./src/ncs-api/*"]
     },
     "jsx": "preserve",
