@@ -5,11 +5,14 @@ export interface ReadSongsFetchRes {
   records: Record[];
 }
 
-interface Record {
+export interface Record {
   id: string;
   name: string;
-  duration: number;
-  img_url: string;
   song_url: string;
+  duration: number;
   likes: number;
+  img_url: string;
+  created_at: string;
+  updated_at: string;
+  author_id: string;
 }

@@ -4,13 +4,14 @@ import type { ReadSongsFetchRes } from "./types";
 export const read_songs_fetch = async (
   params: ReadSongsFetchParams
 ): Promise<ReadSongsFetchRes> => {
-  const { signal } = params;
+  const { signal, token } = params;
 
   const res = await fetch(NcsUrls.read_songs, {
     signal,
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
 
@@ -23,4 +24,5 @@ export const read_songs_fetch = async (
 
 type ReadSongsFetchParams = {
   signal: AbortSignal;
+  token: string;
 };
