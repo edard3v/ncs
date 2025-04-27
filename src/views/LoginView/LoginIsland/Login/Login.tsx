@@ -42,7 +42,13 @@ export default function Login() {
       >
         <InputEmail name="email" err={form.errors()?.email} />
         <InputPassword name="password" err={form.errors()?.password} />
-        <Btn>Login</Btn>
+        <Btn
+          disabled={mutation.isPending}
+          is_loading={mutation.isPending}
+          is_err={mutation.isError}
+        >
+          Login
+        </Btn>
       </form>
     </div>
   );
